@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="website icon" href="img/indir.jpg">
+    <link rel="stylesheet" href="İletişim.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search.js">
+</head>
+<body>
+    <header class="glass">
+        <div class="logo-container">
+            <img src="img/eczacibasi-logo-2023.png" alt="Logo" class="logo">
+        </div>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Ara...">
+            <button onclick="search()"></button>
+        </div>
+    </header>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="icon"></label>
+    <ul class="menu">
+        <li><a href="index.html"><i>Anasayfa</i></a></li>
+        <li><a href="Biz.html"><i>Hakkımızda</i></a></li>
+        <li><a href="gelecek.html">Geleceğimiz</a></li>
+        <li><a href="faliyet.html">Faliyetlerimiz</a></li>
+        <li><a href="İletişim.html">İletişim</a></li>
+    </ul>
+
+    <div class="container">
+        <div class="contact-box">
+            <div class="left">
+                <h2>Bizimle İletişime Geçin</h2>
+                <input type="text" class="field" placeholder="Adınız">
+                <input type="text" class="field" placeholder="Email">
+                <input type="text" class="field" placeholder="Telefon">
+                <textarea placeholder="Mesajı..." class="field"></textarea>
+                <button class="btn" onclick="clearFields()">Gönder</button>
+            </div>
+            <div class="right"></div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="img/eczacibasi-white.png" alt="">
+        <div class="social-media">
+            <a href="https://www.facebook.com/EczacibasiToplulugu/" target="_blank" class="social-icon">
+                <img src="img/f.png" alt="Facebook">
+            </a>
+            <a href="href=https://twitter.com/eczacibasi" target="_blank" class="social-icon">
+                <img src="img/x.png" alt="Twitter">
+            </a>
+            <a href="https://www.instagram.com/eczacibasitoplulugu/" target="_blank" class="social-icon">
+                <img src="img/i.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/company/eczacibasi-toplulugu/?originalSubdomain=tr" target="_blank" class="social-icon">
+                <img src="img/in.png" alt="linkelin">
+            </a>
+            <a href="https://www.youtube.com/eczacibasitoplulugu" target="_blank" class="social-icon">
+                <img src="img/y.png" alt="Youtube">
+            </a>
+            <!-- Diğer sosyal medya linkleri -->
+        </div>
+        <h6 class="mb-3">
+            <a class="text-white" target="_blank" href="https://goo.gl/maps/bzcpMvJmacZ1opxy7"> Eczacıbaşı Holding A.Ş. <br>
+      Kanyon Ofis Büyükdere Caddesi 185 <br>
+      Levent 34394 - İstanbul <br> </a>
+            <a class="text-white tnum-lnum" href="tel:+0 212 371 70 00">0 212 371 70 00</a>
+            <br>
+            <a class="text-white tnum-lnum" href="te:+0 212 371 71 10">0 212 371 71 10</a>
+        </h6>
+    </footer>
+    <script src="search.js"></script>
+    <script src="card.js"></script>
+    <script>
+        // Medya sorgusunu kontrol eden JavaScript kodu
+        function handleResize() {
+            const navbar = document.querySelector('.navbar');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (window.innerWidth <= 768) {
+                navbar.style.display = 'none';
+                mainNav.style.display = 'flex';
+            } else {
+                navbar.style.display = 'flex';
+                mainNav.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('load', handleResize);
+    </script>
+</body>
+</html>

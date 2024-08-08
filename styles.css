@@ -1,0 +1,340 @@
+/* Tarayıcıların varsayılan stilini sıfırla ve temel stil ayarlarını yap */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+}
+
+body {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 50px; /* header ile bir sonraki öğe arasında boşluk */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.glass{
+    background: linear-gradient(135deg, rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0,0.37);
+}
+.spacer {
+    flex: 1; /* Esneklik sağlar, içeriğin boyutuna göre genişler */
+}
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.search {
+    display: flex;
+    flex-grow: 0;
+}
+
+.search input {
+    width: 200px;
+    padding: 7px;
+}
+
+.search button {
+    padding: 5px;
+    margin-left: 5px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+}
+
+.search button::after {
+    content: "\1F50D";
+    font-size: 18px;
+    line-height: 1;
+}
+
+ul.menu {
+    background-color: #765c48;
+    width: 175px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+    position: fixed;
+    left: -300px;
+    top: 23%;
+    transition: 300ms all;
+    z-index: 1;
+}
+
+ul.menu li {
+    display: block;
+}
+
+ul.menu li a {
+    display: block;
+    margin-bottom: 30px;
+    color: #fff;
+    transition: 300ms all;
+}
+
+ul.menu li a:hover {
+    transform: translateX(10px);
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Menü butonunun sol üst köşede ve logo altında sabitlenmesi */
+.icon {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 90px; /* Logo yüksekliğine göre ayarlayın */
+    left: 20px;
+    cursor: pointer;
+    background-color: #000;
+    border-radius: 50%;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-transform: uppercase;
+    transition: width 0.3s, height 0.3s;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 70%;
+}
+
+@media (max-width: 768px) {
+    .icon {
+        width: 10vw;
+        height: 10vw;
+        max-width: 80px;
+        max-height: 80px;
+        padding: 8px;
+        font-size: min(2.5vw, 24px);
+    }
+
+    ul.menu {
+        width: 100vw;
+        left: -100vw;
+    }
+
+    #menu-toggle:checked ~ ul.menu {
+        left: 0;
+    }
+}
+
+#menu-toggle:checked + .icon::before {
+    content: "close";
+}
+
+#menu-toggle:not(:checked) + .icon::before {
+    content: "menu";
+}
+
+#menu-toggle:checked ~ ul.menu {
+    left: 0;
+}
+
+footer {
+    padding: 10px;
+    background-color: #765c48;
+    color: white;
+    text-align: left;
+    margin-top:10%;
+    width: 100%;
+    z-index: 1;
+}
+
+footer img {
+    width: 20%;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+footer h6 {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: auto;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust margin as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-icon img {
+    border-radius: 50%;
+    filter: grayscale(100%);
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.2);
+}
+
+@media (max-width: 576px) {
+    .social-icon img {
+        filter: none;
+        transform: none;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .logo {
+        width: 120px;
+    }
+
+    .search input {
+        width: 150px;
+    }
+
+    h1, h2, h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo {
+        width: 100px;
+    }
+
+    .search input {
+        width: 120px;
+    }
+
+    h1, h2, h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search input {
+        width: 80%;
+        margin-right: 10px;
+    }
+
+    .search button {
+        width: auto;
+    }
+
+    .social-media {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer img {
+        width: 30%;
+        margin: 10px 0;
+    }
+
+    footer h6 {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        width: 80px;
+    }
+
+    .search input {
+        width: 100%;
+    }
+
+    h1, h2, h3 {
+        font-size: 16px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    .social-media {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    footer img {
+        width: 50%;
+        margin: 10px 0;
+    }
+
+    footer h6 {
+        display: block;
+        margin-top: 10px;
+    }
+}
+
+/* Görsellerin duyarlılığı */
+img {
+    max-width: 100%;
+    height: auto;
+}

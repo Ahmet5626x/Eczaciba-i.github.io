@@ -1,0 +1,132 @@
+/* Genel stil */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+/* CSS ile animasyon tanımlaması */
+@keyframes image-anim-top {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Kartların genel wrapper'ı */
+.card-four-colors-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Kartlar arası boşluk */
+    padding: 20px; /* Sayfa kenar boşlukları */
+}
+
+/* Her bir kart */
+.card-four {
+    flex: 1 1 300px; /* Esnek genişlik, minimum 300px */
+    max-width: 300px;
+    overflow: hidden; /* Taşma durumunda içerik gizlensin */
+    position: relative;
+    opacity: 0; /* Kartları başlangıçta gizle */
+    transition: opacity 2s ease; /* Geçiş efekti */
+    visibility: hidden; /* Kartları başlangıçta görünmez yap */
+}
+
+/* Kart animasyonu */
+.card-four.animate {
+    opacity: 1; /* Kartları görünür yap */
+    visibility: visible; /* Kartları görünür yap */
+}
+
+/* Kart içeriği */
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: white;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Kart görseli */
+.card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0; /* Resimleri başlangıçta gizle */
+    animation: slideIn 1s ease forwards; /* Kartlar görünürken animasyon */
+}
+/* Kart içeriğinin üzerine yazı */
+.card-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Kart başlığı */
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: orange;
+}
+
+/* Kart içerik metinleri */
+.card h2 span {
+    font-weight: bold;
+    color: orange;
+}
+.card.animate .card-img {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.card.animate .hero-content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* İlave animasyonlar */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Resimler için fadeIn animasyonu */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hero içeriği */
+.hero-content {
+    margin-top: 50px; /* Hero içeriğine bir üst boşluk ver */
+    margin-bottom: 20%;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: fadeInHero 1s ease-out forwards; /* Hero başlık animasyonu */
+}
+
+/* Hero başlık için fadeIn animasyonu */
+@keyframes fadeInHero {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
